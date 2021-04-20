@@ -1,0 +1,58 @@
+<?page title="Vacation Page" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="win" title="Vacation Request and History Page" border="normal" apply="theTestApp.VacationController">
+<hbox>
+	<hlayout style="border:1px solid">
+	    <calendar id="startcal" showTodayLink="true" onCreate="startcal.value = new Date()" />
+	    <calendar id="endcal" showTodayLink="true" onCreate="endcal.value = new Date()" />
+    </hlayout>
+    <vbox>
+    <hbox style="margin-left:10px;">
+    	<div>
+    	Vacation Type:
+    	<textbox id="vac_type" width="200" height="300" tabbable="true"/>
+    	</div>
+    </hbox>
+    <separator bar="false" height="20px"/>
+    <hbox align="center" style="margin-left:10px;">    
+    	Vacation Request: 
+   	 	<button id="submit" label="Submit"></button>
+    </hbox>
+    </vbox>
+</hbox>
+<separator bar="true" height="30px"/>
+<listbox model="${win$composer.vacationModel}" sizedByContent="false" span="true" rows="9">
+	<listhead>
+            <listheader label="Vacation ID" align="center" />
+            <listheader label="Name" align="center" />
+            <listheader label="Surname" align="center"  />
+            <listheader label="Starting Date" align="center" />
+            <listheader label="Ending Date" align="center"  />
+            <listheader label="Type" align="center" />
+            <listheader label="Status" align="center" />
+            <listheader label="Reply" align="center" />
+	</listhead>
+	<template name="model">
+		<listitem>
+                <listcell label="${each.vid}" />
+                <listcell label="${each.name}" />
+                <listcell label="${each.surname}" />
+                <listcell label="${each.start_date}"/>
+                <listcell label="${each.end_date}"/>
+                <listcell label="${each.type}"/>
+                <listcell>
+                	<label value="${each.status}"></label>                
+                </listcell>
+                <zk if="${each.status=='Pending'}">
+	                	<listcell >
+	                	<hbox>
+		               		<button id="Accept+${each.vid}" label="Accept"></button>
+		               		<button id="Decline+${each.vid}" label="Reject"></button>
+		               	</hbox>
+	                	</listcell>
+                </zk>
+		</listitem>
+	</template>
+</listbox>
+</window>
+</zk>

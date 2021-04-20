@@ -1,0 +1,51 @@
+<?page title="History" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+<window id="win" title="History" border="normal" apply="theTestApp.historyController">
+	<vbox align="center">
+		<hbox align="center">
+			<label>Select Month:</label>
+			<selectbox id="months" model="${win$composer.monthsModel}" >
+            	<template name="model">
+            		<label value="${each.month}" />
+                </template>
+             </selectbox>
+             <separator width="50px"></separator>
+            <label>Select Year:</label>
+			<selectbox id="years" model="${win$composer.yearsModel}" >
+            	<template name="model">
+            		<label value="${each.year}" />
+                </template>
+             </selectbox>
+             <separator width="20px"></separator>
+             <button id="submit" label="Submit"></button>
+		</hbox>
+		<listbox  model="${win$composer.userModel}" sizedByContent="true" span="true" rows="13">
+			<listhead>
+		            <listheader label="User ID" align="center" />
+		            <listheader label="Name" align="center" />
+		            <listheader label="Surname" align="center"  />
+		            <listheader label="Normal Shifts" align="center" />
+		            <listheader label="Night Shifts" align="center"  />
+		            <listheader label="Holiday Shifts" align="center" />
+		            <listheader label="Night-Holiday Shifts" align="center" />
+			</listhead>
+			<template name="model">
+				<listitem>
+		                <listcell label="${each.uid}" />
+		                <listcell label="${each.name}" />
+		                <listcell label="${each.surname}" />
+		                <listcell label="${each.standard}"/>
+		                <listcell label="${each.night}"/>
+		                <listcell label="${each.holiday}"/>
+		                <listcell label="${each.night_holiday}"/>            
+				</listitem>
+			</template>
+		</listbox>
+		<charts id="chart" type="column"
+        title="Monthly Night Holiday Shifts"/>
+        <charts id="chart2" type="column"
+        title="Monthly Holiday Shifts"/>
+	</vbox>
+</window>
+</zk>

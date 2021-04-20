@@ -1,0 +1,18 @@
+package testApp
+
+import theTestApp.Shift;
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScoreHolder;
+
+global HardSoftScoreHolder scoreHolder;
+
+rule "noNullEmployeeShift"
+
+    when
+        Shift : Shift( employee == null );
+        Shift( shift == null );
+		        
+        
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -1);
+end
+

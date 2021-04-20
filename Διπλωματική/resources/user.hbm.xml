@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 16, 2020 8:28:38 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="theTestApp.user" table="USER">
+        <id name="iduser" type="int">
+            <column name="IDUSER" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="surname" type="java.lang.String">
+            <column name="SURNAME" />
+        </property>
+        <property name="standardShift" type="int">
+            <column name="STANDARDSHIFT" />
+        </property>
+        <property name="nightShift" type="int">
+            <column name="NIGHTSHIFT" />
+        </property>
+        <property name="holidayNightShift" type="int">
+            <column name="HOLIDAYNIGHTSHIFT" />
+        </property>
+        <property name="holidayShift" type="int">
+            <column name="HOLIDAYSHIFT" />
+        </property>
+    </class>
+</hibernate-mapping>

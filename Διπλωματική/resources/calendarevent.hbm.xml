@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 16, 2020 8:28:38 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="theTestApp.calendarevent" table="CALENDAREVENT">
+        <id name="idCalendarEvent" type="int" access="field">
+            <column name="IDCALENDAREVENT" />
+            <generator class="assigned" />
+        </id>
+        <property name="day" type="int">
+            <column name="DAY" />
+        </property>
+        <property name="month" type="int">
+            <column name="MONTH" />
+        </property>
+        <property name="year" type="int">
+            <column name="YEAR" />
+        </property>
+        <property name="shift" type="int">
+            <column name="SHIFT" />
+        </property>
+        <property name="idUser" type="int">
+            <column name="IDUSER" />
+        </property>
+        <property name="building" type="int">
+            <column name="BUILDING" />
+        </property>
+    </class>
+</hibernate-mapping>

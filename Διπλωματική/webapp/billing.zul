@@ -1,0 +1,30 @@
+<?page title="Billing Page" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="win" title="Employee Billings" border="normal" apply="theTestApp.billingController">
+	<vbox>
+		<button id="redirect" label="Monthly History"></button>
+		<listbox model="${win$composer.userModel}" sizedByContent="true" span="true" rows="13">
+			<listhead>
+		            <listheader label="User ID" align="center" />
+		            <listheader label="Name" align="center" />
+		            <listheader label="Surname" align="center"  />
+		            <listheader label="Normal Shifts" align="center" />
+		            <listheader label="Night Shifts" align="center"  />
+		            <listheader label="Holiday Shifts" align="center" />
+		            <listheader label="Night-Holiday Shifts" align="center" />
+			</listhead>
+			<template name="model">
+				<listitem>
+		                <listcell label="${each.uid}" />
+		                <listcell label="${each.name}" />
+		                <listcell label="${each.surname}" />
+		                <listcell label="${each.standard}"/>
+		                <listcell label="${each.night}"/>
+		                <listcell label="${each.holiday}"/>
+		                <listcell label="${each.night_holiday}"/>            
+				</listitem>
+			</template>
+		</listbox>
+	</vbox>
+</window>
+</zk>

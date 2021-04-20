@@ -1,0 +1,71 @@
+<?page title="Calendar Event" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="popup" apply="theTestApp.CalendarPopup" border="normal" width="600px"
+        mode="popup" position="center,center">
+<vlayout hflex="1">
+            <grid hflex='1'>
+                <columns>
+                    <column width="200px" align="right" />
+                    <column />
+                </columns>
+                <rows>
+                    <row>
+                        Begin Date:
+                        <cell colspan="2">
+                            <datebox id="beginbox" hflex="1" locale="en" timeZone="GMT+2"/>
+                        </cell>
+                    </row>
+                    <row>
+                        End Date:
+                        <cell colspan="2">
+                            <datebox id="endbox" hflex="1" locale="en" timeZone="GMT+2"/>
+                        </cell>
+                    </row>
+
+                    <row>
+                        <checkbox id="shift_1" label="06:00-14:00" width="97%"/>
+
+                        <checkbox id="shift_2" label="14:00-22:00" width="97%"/>
+
+                        <checkbox id="shift_3" label="22:00-06:00" width="97%"/>
+                    </row>
+                    <row>
+                    	<cell colspan="3">
+                        <checkbox id="building_1" label="Πανεπιστημιούπολη Βουτών" width="97%"/>
+
+                        <checkbox id="building_2" label="Πανεπιστημιούπολη Κνωσού" width="97%"/>
+                        </cell>
+                    </row>
+                    <row >
+                    <cell colspan="3" style="text-align:center;">
+                      <hlayout>   
+					    <listbox style="text-align:left;" id="list" width="300px" height="240px">
+					        <listhead>
+					            <listheader label="Guards"  />
+					        </listhead>
+					    </listbox>
+					 
+					    <style>
+					        div.z-listbox-body .z-listcell {
+					            padding: 2px 5px;
+					        }
+					    </style>	
+                   </hlayout>  
+					</cell>
+        			</row>
+                    <row>
+                        <cell colspan="3" style="text-align:center;">
+                            <hlayout>
+                                <button label="OK" id="ok"  width="80px" />
+                                <button label="Cancel" id="cancel" width="80px" />
+                                <button label="Delete" id="delete" width="80px" />
+                            </hlayout>
+                        </cell>
+                    </row>
+                </rows>
+            </grid>
+        </vlayout>
+       </window>
+       
+</zk>
+

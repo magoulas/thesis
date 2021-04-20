@@ -1,0 +1,41 @@
+<?page title="Schedule Creator" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="win" title="Schedule Creator" border="normal" apply="theTestApp.schedule_creator_Controller">
+	<hbox>
+	<vbox style="border: 1px solid lightgrey">
+		<div>	Description:	</div>
+		<div>	Select the employees to be assigned on each building for the schedule to be created.	</div>
+		<div>	Please note that if ANY employee is not assigned a building, 
+			    <separator height="1px"/>
+		your changes will be IGNORED and the system will auto-assign the employees.	</div>
+	<hbox>
+		<button  id="auto_generate" label="Auto-generate Employee Building Assignments"></button>
+	</hbox>
+	</vbox>
+	<vbox>
+	<listbox id="listbox" model="${win$composer.usersModel}" sizedByContent="true" span="true">
+		<listhead>
+            	<listheader label="User ID" align="center" />
+            	<listheader label="Name" align="center" />
+            	<listheader label="Surname" align="center"  />
+        	    <listheader label="Chosen Building" align="center" />
+		</listhead>
+		<template name="model">
+			<listitem>
+            	    <listcell label="${each.uid}" />
+        	        <listcell label="${each.name}" />
+       	        	<listcell label="${each.surname}" />
+       	         	<listcell>
+						<combobox id="combo${each.uid}">
+							<comboitem id="A+${each.uid}" label="Κτήριο Κνωσού"></comboitem>
+							<comboitem id="B+${each.uid}" label="Κτήριο Βουτών"></comboitem>
+						</combobox>
+       	         	</listcell>
+			</listitem>
+		</template>
+	</listbox>
+	<button  id="submit" label="Submit"></button>
+	</vbox>
+	</hbox>
+</window>
+</zk>

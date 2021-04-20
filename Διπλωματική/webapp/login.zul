@@ -1,0 +1,11 @@
+<zk >
+<window style="position: absolute; top:25%; left:40%;"   border="normal" width="400px" height="300px" apply="theTestApp.LoginController">
+	<vbox align="center" width="300px" >
+		<vbox >
+	        	Username: <textbox id="NameIn" />
+	        	Password: <textbox id="PassIn" />
+	    		<button id="login" label="Login"/>
+	    </vbox>
+	</vbox>
+</window>
+</zk>

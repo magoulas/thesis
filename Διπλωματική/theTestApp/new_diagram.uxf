@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>2</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>166</y>
+      <w>72</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>theTestApp::CalendarPopup
+--
+-serialVersionUID = 1L: long
+~popup: Window
+-calendar: Calendars
+-visibility = false: boolean
+-beginbox: Datebox
+-endbox: Datebox
+-shift_1: Checkbox
+-shift_2: Checkbox
+-shift_3: Checkbox
+-building_1: Checkbox
+-building_2: Checkbox
+-list: Listbox
+~names: List&lt;String&gt;
+~day: String
+~month: String
+~year: String
+~shift: String
+~idUser: String
+~building: String
++eventID: int
+--
++doAfterCompose(Component comp): void
++onEventCreate$calendar(CalendarsEvent event): void
++onEventEdit$calendar(CalendarsEvent event): void
++getMonth(String month): String
++onCheck$shift_1(CheckEvent event): void
++onCheck$shift_2(CheckEvent event): void
++onCheck$shift_3(CheckEvent event): void
++onCheck$building_1(CheckEvent event): void
++onCheck$building_2(CheckEvent event): void
++onClick$ok(Event event): void
++onClick$cancel(Event event): void
++onClick$delete(Event event): void
++onSelect$listboxId(SelectEvent event): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>710</y>
+      <w>142</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>theTestApp::ScheduleGenerator
+--
+~req_employees = 3: int
+~sundayShift1 = 18: int
+~sundayShift2 = 19: int
+~sundayShift3 = 20: int
+~unsolvedEmployeeSchedule: ShiftSchedule
+~FirstSundayShiftsMaxIndex = -1: int
+~SecondSundayShiftsMaxIndex = -1: int
+~ThirdSundayShiftsMaxIndex = -1: int
+~first = -1: int
+~second = -1: int
+~third = -1: int
+~FirstSundayShiftsMinIndex = Integer.MAX_VALUE: int
+~SecondSundayShiftsMinIndex = Integer.MAX_VALUE: int
+~ThirdSundayShiftsMinIndex = Integer.MAX_VALUE: int
+~firstMin = -1: int
+~secondMin = -1: int
+~thirdMin = -1: int
+~workers_range: Integer[]
+~workers_range2: Integer[]
+~mappingA: List&lt;employeeMapping&gt;
+~mappingB: List&lt;employeeMapping&gt;
+~available_workers: int
+~totalSundayShifts: int[]
+~totalSundayShiftsA: int[]
+~totalSundayShiftsB: int[]
+~vacShift: int[][]
+--
++schedule(int call): void
+-storeSchedule(int shift, int first, int second, int third, String[] week, int call, Session session, Transaction t): void
++data(int max, int day, int month, int year, int iduser, int building, int shift): calendarevent
++vacMap(int call): void
++soloEmployee(int employee, List&lt;finalShift&gt; finalSchedule): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>812</x>
+      <y>414</y>
+      <w>82</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>theTestApp::historyController
+--
+-serialVersionUID = 1L: long
+-admin: String
+-userID: int
+-userModel: ListModel&lt;UserList&gt;
+-monthsModel: ListModel&lt;Months&gt;
+-yearsModel: ListModel&lt;Year&gt;
+-month: String
+-year: int
+-model1 = new DefaultCategoryModel(): DefaultCategoryModel
+-model2 = new DefaultCategoryModel(): DefaultCategoryModel
+~chart: Charts
+~chart2: Charts
+--
++historyController(): ctor
++doAfterCompose(Component comp): void
++getUserModel(): ListModel&lt;UserList&gt;
++getMonthsModel(): ListModel&lt;Months&gt;
++changeMonth(): void
++changeYear(): void
++findFile(): void
++getYearsModel(): ListModel&lt;Year&gt;
++setYearsModel(ListModel&lt;Year&gt; yearsModel): void
++getModel1(): DefaultCategoryModel
++getModel2(): DefaultCategoryModel
++OrderMonths(File[] files): List&lt;String&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>694</x>
+      <y>232</y>
+      <w>60</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>theTestApp::vacationdays
+--
+-vacation_id: int
+-user_id: int
+-starting_date: String
+-ending_date: String
+-type: String
+-status: int
+-week_num_start: int
+-week_num_end: int
+--
++getVaction_id(): int
++setVacation_id(int vacation_id): void
++getUser_id(): int
++setUser_id(int user_id): void
++getStarting_date(): String
++setStarting_date(String starting_date): void
++getEnding_date(): String
++setEnding_date(String ending_date): void
++getType(): String
++setType(String type): void
++getStatus(): int
++setStatus(int status): void
++getWeek_num_start(): int
++setWeek_num_start(int week_num): void
++getWeek_num_end(): int
++setWeek_num_end(int week_num_end): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>528</x>
+      <y>554</y>
+      <w>108</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>theTestApp::schedule_creator_Controller
+--
+-S1 = new ArrayList(): List&lt;Integer&gt;
+-S2 = new ArrayList(): List&lt;Integer&gt;
+-dif = new ArrayList(): List&lt;Integer&gt;
++tuvd = new ArrayList(): List&lt;TotalUserVacDays&gt;
+-serialVersionUID = 1L: long
+-admin: String
+-userID: int
+-usersModel: ListModel&lt;UserList&gt;
++building_assignment = new String[13]: String[]
+~win: Window
+~combo0: Combobox
+--
++schedule_creator_Controller(): ctor
++doAfterCompose(Component comp): void
++getUsersModel(): ListModel&lt;UserList&gt;
++building(SelectEvent event): void
++assignments(): void
++auto_assignments(): void
++totalVacDays(): void
++roster_generator(): void
++getCurrentWeek(): String[]
++getVacDays(String[] currWeek, List&lt;vacationdays&gt; vacDays): List&lt;UserVacDays&gt;
++minPartition(int[] S, int n, int S1, int S2, Map&lt;String, Integer&gt; lookup): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>212</y>
+      <w>64</w>
+      <h>86</h>
+    </coordinates>
+    <panel_attributes>theTestApp::calendarevent
+--
+-idCalendarEvent: int
+-day: int
+-month: int
+-year: int
+-shift: int
+-idUser: int
+-building: int
+--
++getDay(): int
++setDay(int day): void
++getMonth(): int
++setMonth(int month): void
++getYear(): int
++setYear(int year): void
++getShift(): int
++setShift(int shift): void
++getIdUser(): int
++setIdUser(int idUser): void
++getBuilding(): int
++setBuilding(int building): void
++getIdCalendarEvent(): int
++setIdCalendarEvent(int idCalendarEvent): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>464</x>
+      <y>216</y>
+      <w>64</w>
+      <h>86</h>
+    </coordinates>
+    <panel_attributes>theTestApp::user
+--
+-iduser: int
+-name: String
+-surname: String
+-standardShift: int
+-nightShift: int
+-holidayNightShift: int
+-holidayShift: int
+--
++getIduser(): int
++setIduser(int iduser): void
++getName(): String
++setName(String name): void
++getSurname(): String
++setSurname(String surname): void
++getStandardShift(): int
++setStandardShift(int standardShift): void
++getNightShift(): int
++setNightShift(int nightShift): void
++getHolidayNightShift(): int
++setHolidayNightShift(int holidayNightShift): void
++getHolidayShift(): int
++setHolidayShift(int holidayShift): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>916</x>
+      <y>418</y>
+      <w>56</w>
+      <h>86</h>
+    </coordinates>
+    <panel_attributes>theTestApp::UserList
+--
+-uid: int
+-name: String
+-surname: String
+-standard: int
+-night: int
+-holiday: int
+-night_holiday: int
+--
++getUid(): int
++setUid(int uid): void
++getName(): String
++setName(String name): void
++getSurname(): String
++setSurname(String surname): void
++getStandard(): int
++setStandard(int standard): void
++getNight(): int
++setNight(int night): void
++getHoliday(): int
++setHoliday(int holiday): void
++getNight_holiday(): int
++setNight_holiday(int night_holiday): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>244</y>
+      <w>52</w>
+      <h>86</h>
+    </coordinates>
+    <panel_attributes>theTestApp::VacationList
+--
+-vid: int
+-name: String
+-surname: String
+-start_date: String
+-end_date: String
+-type: String
+-status: String
+--
++getVid(): int
++setVid(int vid): void
++getName(): String
++setName(String name): void
++getSurname(): String
++setSurname(String surname): void
++getStart_date(): String
++setStart_date(String start_date): void
++getEnd_date(): String
++setEnd_date(String end_date): void
++getType(): String
++setType(String type): void
++getStatus(): String
++setStatus(String status): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>334</x>
+      <y>312</y>
+      <w>112</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>theTestApp::calendarController
+--
+-serialVersionUID = 1L: long
+-calendar: Calendars
+-DATA_FORMAT = new SimpleDateFormat("dd/MM/yyyy HH:mm"): SimpleDateFormat
+~calendarModel = new SimpleCalendarModel(): SimpleCalendarModel
+~userID: int
+~admin: String
+--
+-getDate(String dateText): Date
++isAdmin(boolean admin): boolean
++doAfterCompose(Component comp): void
++redirect(): void
++redirect1(): void
++redirect2(): void
++gotoNext(): void
++gotoPrev(): void
++changeToDay(): void
++changeToWeek(): void
++changeToYear(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>996</x>
+      <y>444</y>
+      <w>64</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>theTestApp::ShiftCompletion
+--
+~s = 0: int
+~march25 = "25-03": String
+~may1 = "01-05": String
+~aug15 = "15-08": String
+~dec24 = "24-12": String
+~dec25 = "25-12": String
+~dec26 = "26-12": String
+~jan1 = "01-01": String
+~jan6 = "06-01": String
+~oct28 = "28-10": String
+~dec31 = "31-12": String
+~dummy = "11-06": String
+--
++execute(JobExecutionContext context): void
++completion(): void
++isHoliday(String today, String holiday): boolean
++getOrthodoxEaster(int myear): Calendar
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>358</y>
+      <w>62</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>theTestApp::VacationController
+--
+-serialVersionUID = 1L: long
+-admin: String
+-userID: int
+-vacationModel: ListModel&lt;VacationList&gt;
+~win: Window
+-adminn = admin: String
+~startcal: Calendar
+~endcal: Calendar
+~vac_type: Textbox
+--
++VacationController(): ctor
++doAfterCompose(Component comp): void
++getVacationModel(): ListModel&lt;VacationList&gt;
++accept(MouseEvent event): void
++submit(): void
++getMonth(String month): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>748</x>
+      <y>716</y>
+      <w>96</w>
+      <h>58</h>
+    </coordinates>
+    <panel_attributes>theTestApp::ShiftSchedule
+--
+-employees: List&lt;Integer&gt;
+-shiftList: List&lt;Shift&gt;
+-shiftListAssignment: List&lt;ShiftAssignment&gt;
+-score: HardSoftScore
+--
++ShiftSchedule(): ctor
++getEmployees(): List&lt;Integer&gt;
++setEmployees(List&lt;Integer&gt; employees): void
++getScore(): HardSoftScore
++setScore(HardSoftScore score): void
++getShiftList(): List&lt;Shift&gt;
++setShiftList(List&lt;Shift&gt; shiftList): void
++getShiftListAssignment(): List&lt;ShiftAssignment&gt;
++setShiftListAssignment(List&lt;ShiftAssignment&gt; shiftListAssignment): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>602</x>
+      <y>464</y>
+      <w>56</w>
+      <h>58</h>
+    </coordinates>
+    <panel_attributes>theTestApp::TotalUserVacDays
+--
+-userID: int
+-sum: int
+-id: int
+-vacDays: List&lt;String&gt;
+--
+~TotalUserVacDays(): ctor
++getUserID(): int
++setUserID(int userID): void
++getSum(): int
++setSum(int sum): void
++getVacDays(): List&lt;String&gt;
++setVacDays(List&lt;String&gt; vacDays): void
++getId(): int
++setId(int id): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>256</x>
+      <y>464</y>
+      <w>46</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>theTestApp::login
+--
+-username: String
+-password: String
+-id: int
+-admin: boolean
+--
++getUsername(): String
++getPassword(): String
++setUsername(String name): void
++setPassword(String pass): void
++getId(): int
++setId(int id): void
++isAdmin(): boolean
++setAdmin(boolean admin): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>938</x>
+      <y>528</y>
+      <w>58</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>theTestApp::billingController
+--
+-admin: String
+-userID: int
+-serialVersionUID = 1L: long
+-userModel: ListModel&lt;UserList&gt;
+--
++billingController(): ctor
++doAfterCompose(Component comp): void
++getUserModel(): ListModel&lt;UserList&gt;
++redirect(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>448</x>
+      <y>594</y>
+      <w>42</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>theTestApp::employeeMapping
+--
+-uid: int
+-index: int
+--
++getUid(): int
++setUid(int uid): void
++getIndex(): int
++setIndex(int index): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>422</x>
+      <y>744</y>
+      <w>50</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>theTestApp::finalShift
+--
+-employee: String
+-shift: int
+--
++getEmployee(): String
++setEmployee(String employee): void
++getShift(): int
++setShift(int shift): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>508</x>
+      <y>486</y>
+      <w>64</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>theTestApp::scheduled_week
+--
+-id: int
+-scheduled_week: int
+--
++getScheduled_week(): int
++setScheduled_week(int scheduled_week): void
++getId(): int
++setId(int id): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>676</x>
+      <y>728</y>
+      <w>52</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>theTestApp::ShiftAssignment
+--
+-employee: Integer
+-shift: Shift
+--
++getEmployee(): Integer
++setEmployee(Integer employee): void
++getShift(): Shift
++setShift(Shift shift): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>536</y>
+      <w>56</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>theTestApp::UserVacDays
+--
+-vacDays: List&lt;String&gt;
+-userID: int
+--
++getUserID(): int
++setUserID(int userID): void
++getVacDays(): List&lt;String&gt;
++setVacDays(List&lt;String&gt; vacDays): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>258</x>
+      <y>542</y>
+      <w>40</w>
+      <h>38</h>
+    </coordinates>
+    <panel_attributes>theTestApp::LoginController
+--
+-serialVersionUID = 1L: long
+~NameIn: Textbox
+~PassIn: Textbox
+--
++redirect(Object[] rows): void
++Login(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>388</x>
+      <y>528</y>
+      <w>108</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>theTestApp::Possible_Worker_set
+--
+~dp: boolean[][]
+~possible_set = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;(): ArrayList&lt;ArrayList&lt;Integer&gt;&gt;
+--
+~display(ArrayList&lt;Integer&gt; v): void
+~printSubsetsRec(Integer[] arr, int i, int sum, ArrayList&lt;Integer&gt; p): void
+~printAllSubsets(Integer[] arr, int n, int sum): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>748</x>
+      <y>498</y>
+      <w>42</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>theTestApp::Months
+--
+-month: String
+--
++getMonth(): String
++setMonth(String month): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>682</x>
+      <y>692</y>
+      <w>32</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>theTestApp::Shift
+--
+-shift: int
+--
++getShift(): int
++setShift(int shift): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>836</x>
+      <y>526</y>
+      <w>60</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>theTestApp::StoreMonthlyShifts
+--
+~i = 0: int
+--
++execute(JobExecutionContext context): void
++findMonth(int month): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>798</x>
+      <y>524</y>
+      <w>34</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>theTestApp::Year
+--
+-year: int
+--
++getYear(): int
++setYear(int year): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>772</y>
+      <w>70</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>theTestApp::ScoreCalculator
+--
+--
++calculateScore(ShiftSchedule shiftSchedule): Score
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>772</x>
+      <y>338</y>
+      <w>42</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>theTestApp::WeekNumber
+--
+--
++getWeekNum(String date): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>278</x>
+      <y>516</y>
+      <w>6</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>302</x>
+      <y>252</y>
+      <w>36</w>
+      <h>74</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;350.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>444</x>
+      <y>236</y>
+      <w>88</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;540.0;420.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>292</y>
+      <w>6</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>302</x>
+      <y>238</y>
+      <w>52</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>240.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>210</y>
+      <w>48</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;220.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>722</x>
+      <y>326</y>
+      <w>6</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>642</x>
+      <y>328</y>
+      <w>52</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>240.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>352</y>
+      <w>42</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;190.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>752</x>
+      <y>292</y>
+      <w>38</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>994</x>
+      <y>510</y>
+      <w>40</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;190.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>948</x>
+      <y>502</y>
+      <w>16</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>892</x>
+      <y>466</y>
+      <w>28</w>
+      <h>6</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>508</y>
+      <w>6</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>812</x>
+      <y>508</y>
+      <w>22</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>788</x>
+      <y>486</y>
+      <w>28</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>494</x>
+      <y>544</y>
+      <w>38</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>170.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>554</x>
+      <y>516</y>
+      <w>18</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>604</y>
+      <w>44</w>
+      <h>8</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>606</x>
+      <y>520</y>
+      <w>6</w>
+      <h>38</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>634</x>
+      <y>566</y>
+      <w>30</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;110.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>584</x>
+      <y>640</y>
+      <w>8</w>
+      <h>74</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;350.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>764</y>
+      <w>38</w>
+      <h>6</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>732</x>
+      <y>746</y>
+      <w>20</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;130.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>644</x>
+      <y>774</y>
+      <w>30</w>
+      <h>14</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>726</x>
+      <y>738</y>
+      <w>26</w>
+      <h>10</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>712</y>
+      <w>6</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

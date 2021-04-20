@@ -1,0 +1,24 @@
+<zk>
+<window apply="theTestApp.calendarController">
+	<div >
+	<hbox>
+		<button label="Request Vacation" id="redirect_vacation"></button>
+	</hbox>
+		<separator bar="true" height="20px"/>
+		<div align="right">
+		<hbox align="center">
+			<button id="pageDay" label="Day"/>
+	        <button id="pageWeek" label="Week" />
+	        <button id="pageMonth" label="Month" />
+	        <separator  width="100px"/>
+			<button id="prev" iconSclass="z-icon-arrow-left"/>
+			<separator width="15px"/>
+	        <button id="next" iconSclass="z-icon-arrow-right"/>	        
+	     </hbox>
+	    <separator height="5px"/>
+		<calendars id="calendar" firstDayOfWeek="Sunday" height="600px" timeZone="Main=GMT+2" mold="month"/>
+	    </div>	
+	</div>
+	    <include src="/calendar_popup.zul" />
+</window>
+</zk>

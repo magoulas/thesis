@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+   <solutionClass>theTestApp.ShiftSchedule</solutionClass>
+   <entityClass>theTestApp.ShiftAssignment</entityClass>
+
+   <scoreDirectorFactory>
+   		  <easyScoreCalculatorClass>theTestApp.ScoreCalculator</easyScoreCalculatorClass> 
+    <!-- <scoreDrl>theTestApp/resources/rules.drl</scoreDrl>-->
+   </scoreDirectorFactory>
+
+
+
+   <!-- Solver termination -->
+   <termination>
+       <secondsSpentLimit>5</secondsSpentLimit>
+   </termination>
+
+
+</solver>
